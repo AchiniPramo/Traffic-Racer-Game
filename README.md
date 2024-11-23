@@ -50,7 +50,7 @@ To play **Traffic Racer** locally, follow these steps:
 
 1. **Clone this repository**:
    ```bash
-   git clone https://github.com/yourusername/traffic-racer.git
+   [git clone (https://github.com/AchiniPramo/Traffic-Racer-Game.git)]
    ```
 2. **Navigate to the project folder**:
    ```bash
