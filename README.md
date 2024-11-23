@@ -1,7 +1,3 @@
-Sure! Below is a more detailed and styled README file that includes rich formatting and makes your **Traffic Racer** project stand out. It uses various Markdown elements like headers, lists, and code blocks, with extra attention to styling for a polished look.
-
----
-
 # Traffic Racer Game 🚗💨
 
 ## 🌟 Overview
