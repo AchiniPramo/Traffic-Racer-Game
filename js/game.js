@@ -48,12 +48,12 @@ $(document).ready(function () {
   function createObstacle() {
     const obstacle = $('<div class="obstacle"></div>');
 
-    const obstacleLeft =
-      Math.random() * (racingTrack.width() - obstacle.width());
+    const obstacleLeft = Math.random() * (racingTrack.width() - 50);
 
     obstacle.css({
       top: "-100px", // Start slightly above the visible area
-      left: obstacleLeft // Random horizontal position
+      left: obstacleLeft, // Random horizontal position
+      position: "absolute"
     });
 
     racingTrack.append(obstacle);
