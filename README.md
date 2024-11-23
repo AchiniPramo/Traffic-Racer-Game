@@ -24,5 +24,5 @@ Score: The longer you survive, the higher your score. Avoid collisions to keep p
 
 Demo
 Check out the gameplay demo:
-Traffic Racer - Gameplay Video
+[Traffic Racer - Gameplay Video](https://youtu.be/8vMpFVfDGis)
 
