@@ -99,7 +99,7 @@ This project is open-source and available under the [MIT License](LICENSE).
 If you have any questions, feel free to reach out:
 
 - **Email**: achinipramodhya4@gmail.com
-- **GitHub**: [yourusername](https://github.com/AchiniPramo)
+- **GitHub**: [AchiniPramo](https://github.com/AchiniPramo)
 
 ---
 
