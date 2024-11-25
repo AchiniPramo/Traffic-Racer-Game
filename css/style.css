@@ -24,7 +24,8 @@ body {
 /* Game Container */
 #traffic-racer-container {
   position: relative;
-  width: 400px;
+  width: 90%; /* Adjust to fit screen */
+  max-width: 400px; /* Limit to maximum width */
   height: 650px;
   margin: 20px auto;
   background-color: #1b1b1b;
@@ -53,6 +54,18 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 10px;
+}
+
+#player-vehicle,
+.obstacle {
+  width: 10%; /* Adjust to track width */
+  max-width: 50px;
+  height: 15%; /* Adjust to track height */
+  max-height: 80px;
+  border-radius: 10px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Obstacle */
