@@ -24,6 +24,17 @@ $(document).ready(function () {
           playerVehicle.css("left", vehiclePos.left + 20);
         }
         break;
+      case "ArrowUp": // Move up
+        if (vehiclePos.top > 0) {
+          playerVehicle.css("top", vehiclePos.top - 20);
+        }
+        break;
+
+      case "ArrowDown": // Move down
+        if (vehiclePos.top < trackHeight - vehicleHeight) {
+          playerVehicle.css("top", vehiclePos.top + 20);
+        }
+        break;
     }
   });
 
@@ -67,9 +78,9 @@ $(document).ready(function () {
     const p = player.position();
     const o = obstacle.position();
     return !(
-      p.top + player.height() < o.top || // Player's bottom above obstacle's top
-      p.top > o.top + obstacle.height() || // Player's top below obstacle's bottom
-      p.left + player.width() < o.left || // Player's right before obstacle's left
+      p.top + player.height() < o.top ||
+      p.top > o.top + obstacle.height() ||
+      p.left + player.width() < o.left ||
       p.left > o.left + obstacle.width()
     );
   }
