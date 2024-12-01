@@ -3,24 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Traffic Racer</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/js/game.js" defer></script>
+    <title>Traffic Racer Web</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
-    <body>
-      <div id="traffic-racer-container">
-        <div id="game-name">Traffic Racer</div>
-        <div id="racing-track">
-          <div id="player-vehicle"></div>
-        </div>
+  <body>
+    <div id="game_container">
+      <div id="game_topic"><h1>Traffic Racer</h1></div>
 
-        <div id="game-controls">
-          <button id="start-game-btn">Start Game</button>
-        </div>
+      <div id="race_track">
+        <div id="player_car"></div>
       </div>
-      <div id="score-panel">
-        <h1>Score: <span id="current-score">0</span></h1>
-      </div>
+    </div>
+
+    <div id="menu">
+      <button id="start_game">Play</button>
+    </div>
+
+    <div id="score_disply">
+      <h2>Score: <span id="score">0</span></h2>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/game.js"></script>
   </body>
 </html>
