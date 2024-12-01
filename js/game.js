@@ -11,25 +11,18 @@ $(document).ready(function () {
   $(document).on("keydown", function (e) {
     const vehiclePos = playerVehicle.position();
     const trackWidth = racingTrack.width();
-    const trackHeight = racingTrack.height();
     const vehicleWidth = playerVehicle.width();
-    const vehicleHeight = playerVehicle.height();
 
     switch (e.key) {
       case "ArrowLeft": // Move left
-        if (vehiclePos.left > 0)
+        if (vehiclePos.left > 0) {
           playerVehicle.css("left", vehiclePos.left - 20);
+        }
         break;
       case "ArrowRight": // Move right
-        if (vehiclePos.left < trackWidth - vehicleWidth)
+        if (vehiclePos.left < trackWidth - vehicleWidth) {
           playerVehicle.css("left", vehiclePos.left + 20);
-        break;
-      case "ArrowUp": // Move up
-        if (vehiclePos.top > 0) playerVehicle.css("top", vehiclePos.top - 20);
-        break;
-      case "ArrowDown": // Move down
-        if (vehiclePos.top < trackHeight - vehicleHeight)
-          playerVehicle.css("top", vehiclePos.top + 20);
+        }
         break;
     }
   });
@@ -37,16 +30,12 @@ $(document).ready(function () {
   // Create obstacle
   function createObstacle() {
     const obstacle = $('<div class="obstacle"></div>');
-
-    // Random horizontal position within the track boundaries
-    const obstacleLeft = Math.random() * (racingTrack.width() - 50); // Ensure obstacle fits within track width
-
+    const obstacleLeft = Math.random() * (racingTrack.width() - 50); // Random position within track width
     obstacle.css({
-      top: "-100px", // Start above the track
-      left: obstacleLeft, // Random horizontal position
+      top: "-100px",
+      left: obstacleLeft,
       position: "absolute"
     });
-
     racingTrack.append(obstacle);
   }
 
@@ -56,17 +45,17 @@ $(document).ready(function () {
       const obstacle = $(this);
       const obstaclePos = obstacle.position();
 
-      // Move obstacle
+      // Move obstacle downward
       obstacle.css("top", obstaclePos.top + speed);
 
-      // Remove if off-screen
+      // Remove obstacle if it moves off-screen
       if (obstaclePos.top > racingTrack.height()) {
         obstacle.remove();
         score += 10; // Increase score
         scorePanel.text(score);
       }
 
-      // Collision detection
+      // Check for collision
       if (checkCollision(playerVehicle, obstacle)) {
         endGame();
       }
@@ -78,34 +67,32 @@ $(document).ready(function () {
     const p = player.position();
     const o = obstacle.position();
     return !(
-      p.top + player.height() < o.top ||
-      p.top > o.top + obstacle.height() ||
-      p.left + player.width() < o.left ||
+      p.top + player.height() < o.top || // Player's bottom above obstacle's top
+      p.top > o.top + obstacle.height() || // Player's top below obstacle's bottom
+      p.left + player.width() < o.left || // Player's right before obstacle's left
       p.left > o.left + obstacle.width()
     );
   }
 
+  // Start game
   function startGame() {
     score = 0;
     speed = 5;
     scorePanel.text(score);
 
-    // Dynamically reset the player's vehicle position
+    // Reset player's position
     const trackWidth = racingTrack.width();
-    const trackHeight = racingTrack.height();
-    const carWidth = playerVehicle.width();
-    const carHeight = playerVehicle.height();
-
+    const vehicleWidth = playerVehicle.width();
     playerVehicle.css({
-      left: (trackWidth - carWidth) / 2, // Center horizontally
-      top: trackHeight - carHeight - 20 // Near bottom with padding
+      left: (trackWidth - vehicleWidth) / 2, // Center horizontally
+      bottom: "20px" // Near the bottom of the track
     });
 
     $("#game-controls").hide(); // Hide start button
 
     gameInterval = setInterval(() => {
       moveObstacles();
-      speed += 0.01; // Gradually increase speed
+      speed += 0.01;
     }, 30);
 
     obstacleInterval = setInterval(createObstacle, 1000);
@@ -115,12 +102,12 @@ $(document).ready(function () {
   function endGame() {
     clearInterval(gameInterval);
     clearInterval(obstacleInterval);
-    $(".obstacle").remove(); // Clear obstacles
-    $("#start-game-btn").text("Restart Game").show(); // Change button text
+    $(".obstacle").remove(); // Remove all obstacles
+    $("#start-game-btn").text("Restart Game").show(); // Update button text
     $("#game-controls").show(); // Show controls again
   }
 
-  // Button listener
+  // Start game button listener
   $("#start-game-btn").on("click", function () {
     startGame();
   });

@@ -87,7 +87,7 @@ body {
   top: 10px;
   left: 10px;
   text-align: center;
-  padding: 10px;
+  padding: 40px;
 }
 
 /* Buttons in the menu */
@@ -102,9 +102,9 @@ body {
 #game-controls button {
   display: inline-block;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 1rem;
   color: #fff;
-  background-color: #007bff;
+  background-color: #4bac2e;
   border: none;
   border-radius: 5px;
   cursor: pointer;
