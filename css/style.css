@@ -43,8 +43,8 @@ body {
   position: absolute;
   bottom: 10px;
   left: 175px;
-  width: 40px;
-  height: 80px;
+  width: 50px;
+  height: 100px;
   background-color: #462cc8ab;
   background-image: url(/assets/images/red-car.png);
   background-size: contain;
