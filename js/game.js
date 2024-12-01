@@ -9,13 +9,25 @@ $(document).ready(function () {
   // Function to move player car
   $(document).on("keydown", function (e) {
     const carPos = playerCar.position();
+    const gameAreaWidth = gameArea.width();
+    const gameAreaHeight = gameArea.height();
+    const playerCarWidth = playerCar.width();
+    const playerCarHeight = playerCar.height();
+
     switch (e.key) {
       case "ArrowLeft": // Move left
         if (carPos.left > 0) playerCar.css("left", carPos.left - 20);
         break;
       case "ArrowRight": // Move right
-        if (carPos.left < gameArea.width() - playerCar.width())
+        if (carPos.left < gameAreaWidth - playerCarWidth)
           playerCar.css("left", carPos.left + 20);
+        break;
+      case "ArrowUp": // Move up
+        if (carPos.top > 0) playerCar.css("top", carPos.top - 20);
+        break;
+      case "ArrowDown": // Move down
+        if (carPos.top < gameAreaHeight - playerCarHeight)
+          playerCar.css("top", carPos.top + 20);
         break;
     }
   });
